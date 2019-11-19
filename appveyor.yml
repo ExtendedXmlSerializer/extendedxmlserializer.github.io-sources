@@ -1,0 +1,31 @@
+version: '1.0.0.{build}'
+environment:
+  TARGET_BRANCH: temp
+  PUSH_USER: Extended Xml Serializer AppVeyor Automation
+  PUSH_EMAIL: ExtendedXmlSerializer@users.noreply.github.com
+  PUSH_TOKEN:
+    secure: L9NuKZzr7PapMaa2eTB3ng6CkPbGDcxcXBHEU21+8gfXvrINWg1fV9S0NhvTttr9
+image: Visual Studio 2019
+branches:
+  only:
+  - master
+pull_requests:
+  do_not_increment_build_number: true
+
+on_success:
+  - ps: |
+        git clone https://github.com/ExtendedXmlSerializer/extendedxmlserializer.github.io.git -b $env:TARGET_BRANCH .wwwroot -q
+        Copy-Item .wwwroot/.git docs -recurse
+        CD docs
+        git config credential.helper store
+        Add-Content "$HOME\.git-credentials" "https://$($env:PUSH_TOKEN):x-oauth-basic@github.com`n"
+        git config user.email $env:PUSH_EMAIL
+        git config user.name $env:PUSH_USER
+        git config core.safecrlf false
+        git add -A 2>&1
+        git commit -m "AppVeyor Continuous Deployment v$($env:APPVEYOR_BUILD_VERSION)" -q
+        git push origin $env:TARGET_BRANCH -q
+
+nuget:
+  project_feed: false
+  disable_publish_on_pr: true

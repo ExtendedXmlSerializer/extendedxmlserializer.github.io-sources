@@ -12,6 +12,15 @@ branches:
 pull_requests:
   do_not_increment_build_number: true
 
+install:
+  - ps: |
+        choco install hugo
+        hugo version
+        hugo
+
+
+build: off
+
 on_success:
   - ps: |
         git clone https://github.com/ExtendedXmlSerializer/extendedxmlserializer.github.io.git -b $env:TARGET_BRANCH .wwwroot -q
@@ -23,7 +32,7 @@ on_success:
         git config user.name $env:PUSH_USER
         git config core.safecrlf false
         git add -A 2>&1
-        git commit -m "AppVeyor Continuous Deployment v$($env:APPVEYOR_BUILD_VERSION)" -q
+        git commit -m "AppVeyor WebSite Deployment v$($env:APPVEYOR_BUILD_VERSION)" -q
         git push origin $env:TARGET_BRANCH -q
 
 nuget:

@@ -16,10 +16,11 @@ pull_requests:
 install:
   - ps: |
         choco install hugo
+        
+build_script: 
+  - ps: |
         hugo version
         hugo
-
-build: off
 
 on_success:
   - ps: |

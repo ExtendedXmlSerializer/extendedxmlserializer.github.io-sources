@@ -3,8 +3,9 @@ environment:
   TARGET_BRANCH: master
   PUSH_USER: Extended Xml Serializer AppVeyor Automation
   PUSH_EMAIL: ExtendedXmlSerializer@users.noreply.github.com
-  PUSH_TOKEN:
-    secure: L9NuKZzr7PapMaa2eTB3ng6CkPbGDcxcXBHEU21+8gfXvrINWg1fV9S0NhvTttr9
+  PUSH_KEY:
+    secure: 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
+
 image: Visual Studio 2019
 branches:
   only:
@@ -18,16 +19,18 @@ install:
         hugo version
         hugo
 
-
 build: off
 
 on_success:
   - ps: |
-        git clone https://github.com/ExtendedXmlSerializer/extendedxmlserializer.github.io.git -b $env:TARGET_BRANCH .wwwroot -q
+        $key = ("-----BEGIN RSA PRIVATE KEY-----`n" +
+                $env:PUSH_KEY.Replace(' ', "`n") +
+                "`n-----END RSA PRIVATE KEY-----`n")
+        Set-Content "$Home\.ssh\id_rsa" $key
+    
+        git clone git@github.com:ExtendedXmlSerializer/extendedxmlserializer.github.io.git -b $env:TARGET_BRANCH .wwwroot -q
         Copy-Item .wwwroot/.git docs -recurse
         CD docs
-        git config credential.helper store
-        Add-Content "$HOME\.git-credentials" "https://$($env:PUSH_TOKEN):x-oauth-basic@github.com`n"
         git config user.email $env:PUSH_EMAIL
         git config user.name $env:PUSH_USER
         git config core.safecrlf false
